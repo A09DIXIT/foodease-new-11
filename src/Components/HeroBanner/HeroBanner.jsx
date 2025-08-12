@@ -58,85 +58,91 @@ export default function HeroBanner() {
   return (
     <div className="bg-gray-50 text-gray-900">
       {/* ===== Hero Banner Section ===== */}
-      <div className="mt-6 px-4 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Left Big Banner */}
-          <div className="md:col-span-2 h-[220px] md:h-[400px] relative rounded-2xl overflow-hidden shadow-2xl group hover:shadow-green-200 transition duration-300">
-            <Carousel
-              autoPlay
-              infiniteLoop
-              showThumbs={false}
-              showStatus={false}
-              showArrows={false}
-              interval={4000}
-            >
-              {[
-                { src: "/ice-cream.png", title: "Cool Off with Ice Creams", desc: "Shop summer treats now" },
-                { src: "/water.png", title: "Beat the Heat", desc: "Refresh your cart" },
-                { src: "/water.png", title: "Frozen Favorites", desc: "Stock up today" },
-              ].map((item, i) => (
-                <div key={i} className="relative group">
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-                  <div className="absolute bottom-4 left-6 text-white">
-                    <h2 className="text-xl md:text-2xl font-extrabold drop-shadow-lg">
-                      {item.title}
-                    </h2>
-                    <p className="text-sm mt-1">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </Carousel>
+      <div className="mt-6 px-2 md:px-10">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+    {/* Left Big Banner */}
+    <div className="md:col-span-2 h-[200px] sm:h-[250px] md:h-[400px] relative rounded-xl overflow-hidden shadow-2xl group hover:shadow-green-200 transition duration-300">
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showThumbs={false}
+        showStatus={false}
+        showArrows={false}
+        interval={4000}
+      >
+        {[
+          { src: "/ice-cream.png", title: "Cool Off with Ice Creams", desc: "Shop summer treats now" },
+          { src: "/water.png", title: "Beat the Heat", desc: "Refresh your cart" },
+          { src: "/water.png", title: "Frozen Favorites", desc: "Stock up today" },
+        ].map((item, i) => (
+          <div key={i} className="relative group">
+            <img
+              src={item.src}
+              alt={item.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+            <div className="absolute bottom-3 left-4 sm:bottom-4 sm:left-6 text-white">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold drop-shadow-lg">
+                {item.title}
+              </h2>
+              <p className="text-xs sm:text-sm mt-1">{item.desc}</p>
+            </div>
           </div>
+        ))}
+      </Carousel>
+    </div>
 
-          {/* Right Small Sliders */}
-          <div className="flex flex-col gap-6">
-            {[
-              {
-                slides: [
-                  { src: "/juices.png", label: "Fresh Juices" },
-                  { src: "/product (1).jpg", label: "Mocktails" },
-                ],
-              },
-              {
-                slides: [
-                  { src: "/frutis.jpg", label: "Daily Essentials" },
-                  { src: "/juices.png", label: "Grocery Picks" },
-                ],
-              },
-            ].map((slider, idx) => (
-              <div key={idx} className="h-[100px] md:h-[190px] relative rounded-2xl overflow-hidden shadow-lg group">
-                <Carousel
-                  autoPlay
-                  infiniteLoop
-                  showThumbs={false}
-                  showStatus={false}
-                  showArrows={false}
-                  interval={2500}
-                >
-                  {slider.slides.map((item, i) => (
-                    <div key={i} className="relative group">
-                      <img
-                        src={item.src}
-                        alt={item.label}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition" />
-                      <div className="absolute bottom-2 left-3 text-white">
-                        <h3 className="font-semibold text-lg drop-shadow">{item.label}</h3>
-                      </div>
-                    </div>
-                  ))}
-                </Carousel>
+    {/* Right Small Sliders */}
+    <div className="flex flex-col gap-4 md:gap-6">
+      {[
+        {
+          slides: [
+            { src: "/juices.png", label: "Fresh Juices" },
+            { src: "/product (1).jpg", label: "Mocktails" },
+          ],
+        },
+        {
+          slides: [
+            { src: "/frutis.jpg", label: "Daily Essentials" },
+            { src: "/juices.png", label: "Grocery Picks" },
+          ],
+        },
+      ].map((slider, idx) => (
+        <div
+          key={idx}
+          className="h-[100px] sm:h-[140px] md:h-[190px] relative rounded-xl overflow-hidden shadow-lg group"
+        >
+          <Carousel
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            showArrows={false}
+            interval={2500}
+          >
+            {slider.slides.map((item, i) => (
+              <div key={i} className="relative group">
+                <img
+                  src={item.src}
+                  alt={item.label}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-40 transition" />
+                <div className="absolute bottom-1 left-2 sm:bottom-2 sm:left-3 text-white">
+                  <h3 className="font-semibold text-sm sm:text-base drop-shadow">
+                    {item.label}
+                  </h3>
+                </div>
               </div>
             ))}
-          </div>
+          </Carousel>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
+
 
       {/* ===== Weekly Specials Slider ===== */}
       <section className="mt-14 px-4 md:px-10">

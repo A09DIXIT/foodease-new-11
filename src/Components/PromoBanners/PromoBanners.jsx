@@ -5,63 +5,27 @@ const PromoSection = () => {
   const promos = [
     {
       slides: [
-        {
-          title: "Stay Hydrated!",
-          subtitle: "Grab refreshing drinks ➤",
-          image: "/ice-cream.png",
-        },
-        {
-          title: "Chill With Juicy Flavors",
-          subtitle: "Order now ➤",
-          image: "/juices.png",
-        },
-        {
-          title: "Pure Water. Pure Life.",
-          subtitle: "Shop bottles ➤",
-          image: "/water.png",
-        },
+        { title: "Stay Hydrated!", subtitle: "Grab refreshing drinks ➤", image: "/ice-cream.png" },
+        { title: "Chill With Juicy Flavors", subtitle: "Order now ➤", image: "/juices.png" },
+        { title: "Pure Water. Pure Life.", subtitle: "Shop bottles ➤", image: "/water.png" },
       ],
-      position: "translate-y-0 z-30",
+      position: "md:translate-y-0 md:z-30",
     },
     {
       slides: [
-        {
-          title: "Beat The Heat With A Cool Treat",
-          subtitle: "Cool off today ➤",
-          image: "/water.png",
-        },
-        {
-          title: "Icy Delights Await",
-          subtitle: "Browse our selection ➤",
-          image: "/ice-cream.png",
-        },
-        {
-          title: "Juice Up Your Day",
-          subtitle: "Taste the freshness ➤",
-          image: "/juices.png",
-        },
+        { title: "Beat The Heat With A Cool Treat", subtitle: "Cool off today ➤", image: "/water.png" },
+        { title: "Icy Delights Await", subtitle: "Browse our selection ➤", image: "/ice-cream.png" },
+        { title: "Juice Up Your Day", subtitle: "Taste the freshness ➤", image: "/juices.png" },
       ],
-      position: "translate-y-4 z-20",
+      position: "md:translate-y-4 md:z-20",
     },
     {
       slides: [
-        {
-          title: "Flavors To Please Every Taste",
-          subtitle: "Try something new ➤",
-          image: "/juices.png",
-        },
-        {
-          title: "Stay Refreshed Anytime",
-          subtitle: "Hydration essentials ➤",
-          image: "/water.png",
-        },
-        {
-          title: "Frozen Treats You’ll Love",
-          subtitle: "View all now ➤",
-          image: "/ice-cream.png",
-        },
+        { title: "Flavors To Please Every Taste", subtitle: "Try something new ➤", image: "/juices.png" },
+        { title: "Stay Refreshed Anytime", subtitle: "Hydration essentials ➤", image: "/water.png" },
+        { title: "Frozen Treats You’ll Love", subtitle: "View all now ➤", image: "/ice-cream.png" },
       ],
-      position: "translate-y-0 z-10",
+      position: "md:translate-y-0 md:z-10",
     },
   ];
 
@@ -73,26 +37,25 @@ const PromoSection = () => {
         prev.map((index, i) => (index + 1) % promos[i].slides.length)
       );
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="bg-[#fff4f4] py-10 px-4 md:px-14">
-      <h2 className="text-3xl font-bold text-center mb-10 text-red-600 tracking-tight">
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-red-600 tracking-tight">
         New Arrivals
       </h2>
 
-      <div className="flex justify-center items-start relative max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row justify-center items-center md:items-start relative max-w-7xl mx-auto gap-6 md:gap-0">
         {promos.map((promo, index) => {
           const currentSlide = promo.slides[slideIndexes[index]];
 
           return (
             <div
               key={index}
-              className={`relative w-[300px] md:w-[400px] h-[220px] md:h-[240px] rounded-xl overflow-hidden shadow-xl ${promo.position}`}
+              className={`relative w-full sm:w-[300px] md:w-[400px] h-[200px] sm:h-[220px] md:h-[240px] rounded-xl overflow-hidden shadow-xl ${promo.position}`}
               style={{
-                marginLeft: index !== 0 ? "-10px" : "0px",
+                marginLeft: index !== 0 && window.innerWidth >= 768 ? "-10px" : "0px",
               }}
             >
               <AnimatePresence mode="wait">
@@ -115,16 +78,16 @@ const PromoSection = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide.title}
-                  className="relative z-20 h-full w-full px-6 py-4 flex flex-col justify-center text-white"
+                  className="relative z-20 h-full w-full px-4 md:px-6 py-3 md:py-4 flex flex-col justify-center text-white"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <h3 className="text-lg font-extrabold leading-snug drop-shadow-md">
+                  <h3 className="text-base sm:text-lg md:text-lg font-extrabold leading-snug drop-shadow-md">
                     {currentSlide.title}
                   </h3>
-                  <p className="text-base md:text-xl mt-2 drop-shadow-md">
+                  <p className="text-sm sm:text-base md:text-xl mt-2 drop-shadow-md">
                     {currentSlide.subtitle}
                   </p>
                 </motion.div>
