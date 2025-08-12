@@ -164,7 +164,7 @@ export default function HeroBanner() {
           slidesPerView={1}
           spaceBetween={20}
           navigation
-          autoplay={{ delay: 4000 }}
+          autoplay={{ delay: 3000 }}
           breakpoints={{
             640: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
