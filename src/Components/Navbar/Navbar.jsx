@@ -24,6 +24,23 @@ export default function Navbar() {
     "Drinks",
     "Ready to Eat",
     "Instant Mix",
+    "Utensils & Disposables",
+    "Confectionary",
+    "Pacific Island Foods",
+    "Fryums & Pappadams",
+    "Pooja Items & Incense",
+    "Nuts AND Grains",
+    "Noodles & Vermicille",
+    "Nepalease Food",
+    "Suger & Jaggery",
+    "Tea & Coffee",
+    "House Hold Products",
+    "Fresh Produces",
+    "Dry Fish",
+    
+
+
+
   ];
 
   return (
@@ -82,18 +99,20 @@ export default function Navbar() {
             onMouseLeave={() => setShowCategories(false)}
           >
             All Groceries <ChevronDown className="w-4 h-4" />
-            {showCategories && (
-              <ul className="absolute top-full left-0 bg-white shadow-md border mt-1 w-80 z-50 grid grid-cols-2">
-                {categories.map((cat, idx) => (
-                  <li
-                    key={idx}
-                    className="px-4 py-2 hover:bg-green-50 cursor-pointer"
-                  >
-                    {cat}
-                  </li>
-                ))}
-              </ul>
-            )}
+           {showCategories && (
+  <ul
+    className="absolute top-full left-0 bg-white shadow-md border mt-1 w-[600px] z-50 grid grid-cols-3"
+  >
+    {categories.map((cat, idx) => (
+      <li
+        key={idx}
+        className="px-4 py-2 hover:bg-green-50 cursor-pointer"
+      >
+        {cat}
+      </li>
+    ))}
+  </ul>
+)}
           </li>
 
           <li className="cursor-pointer hover:text-red-600">Weekly Specials</li>
