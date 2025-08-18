@@ -61,7 +61,7 @@ export default function HeroBanner() {
       <div className="mt-6 px-2 md:px-10">
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
     {/* Left Big Banner */}
-    <div className="md:col-span-2 h-[300px] sm:h-[250px] md:h-[400px] relative rounded-xl overflow-hidden shadow-2xl group hover:shadow-green-200 transition duration-300">
+    <div className="md:col-span-2 h-[300px] sm:h-[250px] md:h-[440px] relative rounded-xl overflow-hidden shadow-2xl group hover:shadow-green-200 transition duration-300">
       <Carousel
         autoPlay
         infiniteLoop
@@ -71,9 +71,9 @@ export default function HeroBanner() {
         interval={4000}
       >
         {[
-          { src: "/B1.jpeg", title: "Cool Off with Ice Creams", desc: "Shop summer treats now" },
-          { src: "/water.png", title: "Beat the Heat", desc: "Refresh your cart" },
-          { src: "/water.png", title: "Frozen Favorites", desc: "Stock up today" },
+          { src: "/1.png", title: "Cool Off with Ice Creams", desc: "Shop summer treats now" },
+          { src: "/2 (1).png", title: "Beat the Heat", desc: "Refresh your cart" },
+          { src: "/3.png", title: "Frozen Favorites", desc: "Stock up today" },
         ].map((item, i) => (
           <div key={i} className="relative group">
             <img
@@ -111,7 +111,7 @@ export default function HeroBanner() {
       ].map((slider, idx) => (
         <div
           key={idx}
-          className="h-[100px] sm:h-[140px] md:h-[190px] relative rounded-xl overflow-hidden shadow-lg group"
+          className="h-[100px] sm:h-[140px] md:h-[207px] relative rounded-xl overflow-hidden shadow-lg group"
         >
           <Carousel
             autoPlay
