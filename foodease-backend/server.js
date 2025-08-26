@@ -1,52 +1,42 @@
-// server.js
-
-const mongoose = require("mongoose");
+require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const User = require("./models/User");
 
 const app = express();
-const PORT = 5000;
-const SECRET_KEY = "foodease_secret"; // ⚠️ In production use environment variable
+const PORT = process.env.PORT || 5000;
+const SECRET_KEY = process.env.JWT_SECRET;
 
-// ✅ MongoDB connection
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Connect MongoDB
 mongoose
-  .connect("mongodb://127.0.0.1:27017/foodease", {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useUnifiedTopology: true
   })
   .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error(err));
+  .catch((err) => console.error("❌ MongoDB Error:", err));
 
-app.use(cors());
-app.use(bodyParser.json());
-
-app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
-});
-
-
-// ✅ User model
-const UserSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-});
-const User = mongoose.model("User", UserSchema);
-
-// ✅ Generate JWT
+// Generate JWT
 function generateToken(user) {
-  return jwt.sign({ username: user.username }, SECRET_KEY, { expiresIn: "1h" });
+  return jwt.sign({ id: user._id, username: user.username }, SECRET_KEY, {
+    expiresIn: "1h"
+  });
 }
 
-// ✅ Signup API (saves to MongoDB)
+// Signup API
 app.post("/signup", async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    const userExists = await User.findOne({ username });
-    if (userExists) {
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
 
@@ -56,11 +46,11 @@ app.post("/signup", async (req, res) => {
 
     res.json({ message: "Signup successful!" });
   } catch (err) {
-    res.status(500).json({ message: "Error signing up", error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
 
-// ✅ Login API (checks MongoDB)
+// Login API
 app.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -74,11 +64,11 @@ app.post("/login", async (req, res) => {
     const token = generateToken(user);
     res.json({ message: "Login successful!", token });
   } catch (err) {
-    res.status(500).json({ message: "Error logging in", error: err.message });
+    res.status(500).json({ error: err.message });
   }
 });
 
-// ✅ Protected Route Example
+// Protected Profile Route
 app.get("/profile", (req, res) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ message: "No token provided" });
@@ -90,7 +80,5 @@ app.get("/profile", (req, res) => {
   });
 });
 
-// ✅ Start server
-app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
-});
+// Start Server
+app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));

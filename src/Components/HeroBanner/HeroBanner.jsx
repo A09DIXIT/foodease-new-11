@@ -40,8 +40,7 @@ export default function HeroBanner() {
         { name: "Doon Valley Corn Flour White 908g", img: "/DoonValleyCornFlourWhite908g.png" },
         { name: "Doon Valley Crispy Chilli Oil 230g", img: "/DV CRISPY CHILLI OIL.png" },
         { name: "Doon Valley Fada Coarse 908g", img: "/DoonValleyFadaCoarse.png" },
-        { name: "Coriander Powder.png", img: "/corianderpowder.png" },
-        
+        { name: "Coriander Powder.png", img: "/corianderpowder.png" },    
       ],
     },
   ];
@@ -158,7 +157,7 @@ export default function HeroBanner() {
 
 
       {/* ===== Sweets Corner Swiper ===== */}
-      <section className="py-24 px-4 md:px-10 bg-pink-50">
+      <section className="py-24 px-4 md:px-10">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-red-600">Sweets Corner</h2>
           <a href="/products" className="flex items-center space-x-2">
@@ -230,7 +229,7 @@ export default function HeroBanner() {
       <PromoBanners />
 
       {/* ===== Ways to Shop ===== */}
-      <section className="py-16 px-4 md:px-10 bg-gradient-to-r from-green-50  via-green-100 to-green-50 text-center">
+      <section className="py-16 px-4 md:px-10 bg-gradient-to-r text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-green-800">Ways to Shop</h2>
         <div className="flex flex-col md:flex-row justify-center gap-8 text-lg font-medium">
           <div className="flex items-center gap-2 hover:scale-105 transition">Home Delivery</div>
@@ -244,7 +243,7 @@ export default function HeroBanner() {
       <PromoBanner />
 
       {/* ===== Loyalty Rewards ===== */}
-      <section className="py-16 px-4 md:px-10 bg-yellow-100 text-center">
+      <section className="py-16 px-4 md:px-10 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-yellow-700">Loyalty Rewards</h2>
         <p className="text-md md:text-lg max-w-xl mx-auto mb-6 text-gray-700">
           Earn points on every purchase and redeem them for exclusive discounts and gifts!

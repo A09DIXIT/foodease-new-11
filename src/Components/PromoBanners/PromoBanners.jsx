@@ -41,7 +41,7 @@ const PromoSection = () => {
   }, []);
 
   return (
-    <div className="bg-[#fff4f4] py-10 px-4 md:px-14">
+    <div className="py-10 px-4 md:px-14">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-red-600 tracking-tight">
         New Arrivals
       </h2>
