@@ -7,10 +7,10 @@ import HeroBanner from "./Components/HeroBanner/HeroBanner";
 import Footer from "./Components/Footer/Footer";
 import PromoSection from "./Pages/PromoSection/PromoSection";
 
-import Login from "./Pages/Login";   // ✅ your login page
-import Signup from "./Pages/Signup"; // ✅ your signup page
+
 import Profile from "./Pages/Profile"; // ✅ profile page
 import ProtectedRoute from "./Pages/ProtectedRoute"; // ✅ route protection
+import Login from "./Components/Login/Login";
 
 // Layout wrapper to hide Navbar & Footer on Login/Signup
 function LayoutWrapper({ children }) {
@@ -38,10 +38,9 @@ export default function App() {
 
           {/* Product List Page */}
           <Route path="/products" element={<ProductList />} />
+           <Route path="/login" element={<Login />} />
 
-          {/* Auth Pages */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          
 
           {/* Protected Profile Page */}
           <Route

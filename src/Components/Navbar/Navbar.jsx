@@ -69,12 +69,18 @@ export default function Navbar() {
             <Bell className="h-6 w-6 text-gray-600" />
             <span className="absolute top-0 right-0 bg-red-500 rounded-full w-2 h-2"></span>
           </button>
-          <button className="text-sm px-4 py-2 bg-white border rounded hover:bg-gray-100">
-            Login
-          </button>
-          <button className="text-sm px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
-            Sign Up
-          </button>
+            <Link
+    to="/login"
+    onClick={() => setMobileMenuOpen(false)}
+  >
+    Login
+  </Link>
+  <Link
+    to="/signup"
+    onClick={() => setMobileMenuOpen(false)}
+  >
+    Sign Up
+  </Link>
         </div>
 
         {/* Mobile Menu Button */}
