@@ -37,10 +37,7 @@ export default function Navbar() {
     "House Hold Products",
     "Fresh Produces",
     "Dry Fish",
-    
-
-
-
+     
   ];
 
   return (
