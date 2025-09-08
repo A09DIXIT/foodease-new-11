@@ -168,13 +168,21 @@ export default function Navbar() {
 
             {/* Auth Buttons */}
             <div className="mt-6 space-y-2">
-              <button className="w-full px-4 py-2 border rounded hover:bg-gray-100">
-                Login
-              </button>
-              <button className="w-full px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
-                Sign Up
-              </button>
-            </div>
+  <Link
+    to="/login"
+    onClick={() => setMobileMenuOpen(false)}
+    className="block w-full text-center px-4 py-2 border rounded hover:bg-gray-100"
+  >
+    Login
+  </Link>
+  <Link
+    to="/signup"
+    onClick={() => setMobileMenuOpen(false)}
+    className="block w-full text-center px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+  >
+    Sign Up
+  </Link>
+</div>
           </div>
         </div>
       )}
